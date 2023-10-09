@@ -199,17 +199,9 @@ import github.View
 import github.Workflow
 import github.WorkflowRun
 from github import Consts
-from github.GithubObject import (
-    Attribute,
-    CompletableGithubObject,
-    NotSet,
-    Opt,
-    _NotSetType,
-    is_defined,
-    is_optional,
-    is_optional_list,
-    is_undefined,
-)
+from github.GithubObject import (Attribute, CompletableGithubObject, NotSet,
+                                 Opt, _NotSetType, is_defined, is_optional,
+                                 is_optional_list, is_undefined)
 from github.PaginatedList import PaginatedList
 
 if TYPE_CHECKING:
@@ -228,7 +220,8 @@ if TYPE_CHECKING:
     from github.Deployment import Deployment
     from github.Download import Download
     from github.Environment import Environment
-    from github.EnvironmentDeploymentBranchPolicy import EnvironmentDeploymentBranchPolicyParams
+    from github.EnvironmentDeploymentBranchPolicy import \
+        EnvironmentDeploymentBranchPolicyParams
     from github.EnvironmentProtectionRuleReviewer import ReviewerParams
     from github.Event import Event
     from github.GitBlob import GitBlob
@@ -1882,7 +1875,7 @@ class Repository(CompletableGithubObject):
         assert is_undefined(homepage) or isinstance(homepage, str), homepage
         assert is_undefined(private) or isinstance(private, bool), private
         assert is_undefined(visibility) or (
-            isinstance(visibility, str) and visibility in ["public", "private"]
+            isinstance(visibility, str) and visibility in ["public", "private", "internal"]
         ), visibility
         assert is_undefined(has_issues) or isinstance(has_issues, bool), has_issues
         assert is_undefined(has_projects) or isinstance(has_projects, bool), has_projects
